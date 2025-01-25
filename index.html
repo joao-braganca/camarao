@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>você é um camarão?</title>
+    <style>
+        body, html{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+        }
+        .a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #0ff;
+            padding: 25px;
+        }
+        .sn{
+            width: 150px;
+            height: 50px;
+            font-size: 25px;
+            font-weight: bolder;
+            background-color: #0cc;
+            border: solid #066;
+            cursor: pointer;
+        }
+        .sn:hover{
+            background-color: #0aa;
+            border: solid #044;
+            transform: scale(1.1);
+        }
+        .camarao{
+            margin: 25px;
+        }
+        #primeiro{
+            visibility: visible;
+        }
+        #segundo{
+            position: absolute;
+            visibility: hidden;
+        }
+        #terceiro{
+            position: absolute;
+            visibility: hidden;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="a" id="primeiro">
+        <h1 style="color: black; padding: 0px; margin: 0px; font-size: 40px;">VOCÊ É UM CAMARÃO?</h1>
+        <img src="camarao.png" class="camarao">
+        <div style="display: flex; gap: 50px;">
+        <button class="sn" onclick="sim()">SIM</button>
+        <button class="sn" onclick="nao()">NÃO</button>
+        </div>
+    </div>
+
+    <div class="a" id="segundo">
+        <img src="gato rindo.jpeg" style="height: 400px;">
+        <br>
+        <button class="sn" style="width: 100%;" onclick="inicio()">TENTAR NOVAMENTE</button>
+    </div>
+
+    <div class="a" id="terceiro">
+        <img src="hehe.jpeg" style="height: 200px;">
+        <br>
+        <button class="sn" style="width: 100%;" onclick="inicio()">TENTAR NOVAMENTE</button>
+    </div>
+
+    <audio id="musica" src="meme-do-gato-rindo_M4A_128K_.mp3"></audio>
+    <audio id="musicaa" src="BRILHO-_-EFEITO-SONORO_M4A_128K_.mp3"></audio>
+</body>
+
+<script>
+
+    function sim(){
+        document.getElementById("primeiro").style.visibility="hidden";
+        document.getElementById("segundo").style.visibility="visible";
+        document.getElementById("musica").play();
+    }
+
+    function nao(){
+
+        document.getElementById("primeiro").style.visibility="hidden";
+        document.getElementById("terceiro").style.visibility="visible";
+        document.getElementById("musicaa").play();
+    }
+
+    function inicio(){
+        document.getElementById("primeiro").style.visibility="visible";
+        document.getElementById("segundo").style.visibility="hidden";
+        document.getElementById("terceiro").style.visibility="hidden";
+        document.getElementById("musica").pause();
+        document.getElementById("musicaa").pause();
+    }
+    document.getElementById("musica").addEventListener('ended',()=>{
+        document.getElementById("musica").currentTime=0;
+        document.getElementById("musica").play();
+    })
+
+    document.getElementById("musicaa").addEventListener('ended',()=>{
+        document.getElementById("musicaa").currentTime=0;
+        document.getElementById("musicaa").play();
+    })
+
+
+
+</script>
+</html>
